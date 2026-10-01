@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Harsh AI Studio - Free creator tools for thumbnails, captions, prompts and social media content.">
+<title>Harsh AI Studio</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#070914;--card:#111525;--card2:#171c30;--text:#f7f8ff;--muted:#aeb5cc;--line:#282e46;--accent:#7c5cff;--accent2:#19d3ff;--ok:#35d07f}
+body{font-family:Inter,Arial,sans-serif;background:radial-gradient(circle at 20% 0%,#1d1740 0,#070914 38%),var(--bg);color:var(--text);min-height:100vh}
+button,input,textarea,select{font:inherit}
+header{position:sticky;top:0;z-index:10;background:rgba(7,9,20,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{max-width:1150px;margin:auto;padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:900;font-size:20px;letter-spacing:.3px}.logo span{color:var(--accent2)}
+.nav a{color:var(--muted);text-decoration:none;margin-left:20px;font-size:14px}
+.hero{max-width:1150px;margin:auto;padding:75px 20px 45px;text-align:center}
+.badge{display:inline-block;padding:7px 12px;border:1px solid #3a326b;background:#15112d;border-radius:99px;color:#c8c0ff;font-size:13px;margin-bottom:18px}
+h1{font-size:clamp(38px,7vw,72px);line-height:1.02;margin-bottom:18px}
+.grad{background:linear-gradient(90deg,#fff,#a995ff,#4edcff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:680px;margin:auto;color:var(--muted);font-size:17px;line-height:1.6}
+.actions{margin-top:25px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{border:0;border-radius:12px;padding:12px 18px;cursor:pointer;font-weight:800;color:white;background:linear-gradient(135deg,var(--accent),#4f8cff);box-shadow:0 8px 30px #6e56ff22}
+.btn.secondary{background:#161b2d;border:1px solid var(--line);box-shadow:none}
+.container{max-width:1150px;margin:auto;padding:15px 20px 70px}
+.section-title{font-size:27px;margin:25px 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:linear-gradient(180deg,rgba(23,28,48,.95),rgba(13,17,31,.95));border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 14px 50px #0003}
+.card .icon{font-size:29px}.card h3{margin:12px 0 7px}.card p{color:var(--muted);font-size:14px;line-height:1.5}
+.tool{margin-top:18px}
+label{display:block;color:#dfe3f3;font-size:13px;font-weight:700;margin:12px 0 7px}
+input,textarea,select{width:100%;background:#0b0f1d;border:1px solid var(--line);color:white;border-radius:11px;padding:12px;outline:none}
+textarea{min-height:125px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:650px){.row{grid-template-columns:1fr}.nav a{display:none}}
+.output{margin-top:12px;background:#090c17;border:1px dashed #3a4260;border-radius:12px;padding:14px;white-space:pre-wrap;min-height:90px;color:#e9ecf8;line-height:1.55}
+.small{font-size:12px;color:var(--muted);margin-top:8px}
+footer{border-top:1px solid var(--line);padding:28px 20px;text-align:center;color:var(--muted);font-size:13px}
+.toast{position:fixed;right:18px;bottom:18px;background:#151b2c;border:1px solid var(--line);padding:12px 16px;border-radius:12px;display:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="logo">HARSH <span>AI STUDIO</span></div>
+    <nav><a href="#tools">Tools</a><a href="#about">About</a></nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="badge">⚡ Free Creator Toolkit • No API Key Required</div>
+  <h1>Create Faster with <span class="grad">Harsh AI Studio</span></h1>
+  <p>Free creator tools for YouTube, Instagram and short-form content. Generate titles, captions, thumbnail prompts and AI video prompts in seconds.</p>
+  <div class="actions">
+    <a class="btn" href="#tools">🚀 Start Creating</a>
+    <button class="btn secondary" onclick="copyText('Harsh AI Studio')">Copy Website Name</button>
+  </div>
+</section>
+
+<main class="container" id="tools">
+  <h2 class="section-title">🧰 Creator Tools</h2>
+
+  <div class="grid">
+    <div class="card"><div class="icon">🖼️</div><h3>Thumbnail Prompt</h3><p>Create a ready-to-use AI image prompt for YouTube thumbnails.</p></div>
+    <div class="card"><div class="icon">🎬</div><h3>Video Prompt</h3><p>Create a short cinematic prompt for AI video generators.</p></div>
+    <div class="card"><div class="icon">✍️</div><h3>Title & Caption</h3><p>Generate multiple catchy title and caption ideas.</p></div>
+    <div class="card"><div class="icon">🎵</div><h3>Song Prompt</h3><p>Create prompts for Gujarati/Hindi DJ and devotional songs.</p></div>
+  </div>
+
+  <div class="card tool">
+    <h2>🖼️ AI Thumbnail Prompt Generator</h2>
+    <div class="row">
+      <div><label>Video topic</label><input id="topic" placeholder="e.g. Gujarati Navratri DJ Song"></div>
+      <div><label>Format</label><select id="format"><option>16:9 YouTube</option><option>9:16 Shorts/Reels</option><option>1:1 Instagram</option></select></div>
+    </div>
+    <label>Style</label><input id="style" placeholder="e.g. heavy editing, DSLR, HDR, blue glow, clean background">
+    <button class="btn" style="margin-top:12px" onclick="makeThumb()">Generate Prompt</button>
+    <div class="output" id="thumbOut">Your prompt will appear here...</div>
+    <button class="btn secondary" onclick="copyOutput('thumbOut')" style="margin-top:10px">📋 Copy</button>
+  </div>
+
+  <div class="card tool">
+    <h2>🎬 AI Video Prompt Generator</h2>
+    <div class="row">
+      <div><label>Scene</label><input id="scene" placeholder="e.g. Gujarati village Navratri night"></div>
+      <div><label>Duration</label><select id="duration"><option>10 seconds</option><option>15 seconds</option><option>30 seconds</option></select></div>
+    </div>
+    <label>Character / subject</label><input id="character" placeholder="e.g. Gujarati girl in traditional chaniya choli">
+    <label>Extra details</label><input id="details" placeholder="e.g. cinematic camera, realistic face, smooth motion">
+    <button class="btn" style="margin-top:12px" onclick="makeVideo()">Generate Prompt</button>
+    <div class="output" id="videoOut">Your prompt will appear here...</div>
+    <button class="btn secondary" onclick="copyOutput('videoOut')" style="margin-top:10px">📋 Copy</button>
+  </div>
+
+  <div class="card tool">
+    <h2>✍️ YouTube Title & Caption Generator</h2>
+    <label>Content topic</label><input id="captionTopic" placeholder="e.g. Gujarati romantic status">
+    <div class="row">
+      <div><label>Language</label><select id="lang"><option>Hindi</option><option>Gujarati</option><option>English</option></select></div>
+      <div><label>Vibe</label><select id="vibe"><option>Viral</option><option>Emotional</option><option>Funny</option><option>Devotional</option><option>Attitude</option></select></div>
+    </div>
+    <button class="btn" style="margin-top:12px" onclick="makeCaption()">Generate Ideas</button>
+    <div class="output" id="captionOut">Your ideas will appear here...</div>
+    <button class="btn secondary" onclick="copyOutput('captionOut')" style="margin-top:10px">📋 Copy</button>
+  </div>
+
+  <div class="card tool">
+    <h2>🎵 AI Song Prompt Generator</h2>
+    <div class="row">
+      <div><label>Song topic</label><input id="songTopic" placeholder="e.g. Navratri / love / Ramdev Pir"></div>
+      <div><label>Voice</label><select id="voice"><option>Female thin voice</option><option>Male thin voice</option><option>Female normal voice</option><option>Male normal voice</option></select></div>
+    </div>
+    <label>Music style</label><input id="music" placeholder="e.g. Gujarati DJ remix, dhol, slow speed">
+    <button class="btn" style="margin-top:12px" onclick="makeSong()">Generate Song Prompt</button>
+    <div class="output" id="songOut">Your prompt will appear here...</div>
+    <button class="btn secondary" onclick="copyOutput('songOut')" style="margin-top:10px">📋 Copy</button>
+  </div>
+
+  <div class="card tool" id="about">
+    <h2>ℹ️ About</h2>
+    <p style="color:var(--muted);line-height:1.7;margin-top:8px">
+      Harsh AI Studio is a free creator-tool website. This starter version works completely in the browser and does not send your text to an AI server.
+      You can later connect real AI APIs or your own backend without changing the basic design.
+    </p>
+  </div>
+</main>
+
+<footer>© <span id="year"></span> Harsh AI Studio • Built for creators</footer>
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+const $=id=>document.getElementById(id);
+function copyText(t){navigator.clipboard?.writeText(t);toast("Copied!")}
+function copyOutput(id){const t=$(id).innerText;navigator.clipboard?.writeText(t);toast("Copied to clipboard!")}
+function toast(t){const x=$("toast");x.innerText=t;x.style.display="block";setTimeout(()=>x.style.display="none",1500)}
+function makeThumb(){
+ const topic=$("topic").value||"Gujarati viral video";
+ const format=$("format").value;
+ const style=$("style").value||"premium cinematic, HDR, DSLR";
+ $("thumbOut").innerText=`Create a ${format} YouTube thumbnail for "${topic}". ${style}. Main subject sharp and highly detailed, expressive composition, strong visual hierarchy, premium creator thumbnail look, clean readable space for title text, realistic lighting, depth, crisp details, high contrast, professional commercial photography, no watermark, no distorted text.`;
+}
+function makeVideo(){
+ const scene=$("scene").value||"a beautiful cinematic scene";
+ const duration=$("duration").value;
+ const character=$("character").value||"a realistic main character";
+ const details=$("details").value||"cinematic camera movement, realistic lighting";
+ $("videoOut").innerText=`Create a ${duration} cinematic AI video: ${scene}. Subject: ${character}. ${details}. Natural movement, consistent face and clothing, smooth camera motion, realistic environment, detailed background, professional color grading, high quality, no flicker, no face distortion. Keep the scene coherent from beginning to end.`;
+}
+function makeCaption(){
+ const t=$("captionTopic").value||"Gujarati creator video";
+ const l=$("lang").value, v=$("vibe").value;
+ $("captionOut").innerText=`${l} ${v} ideas for: ${t}\n\n1. ${t} 🔥 | Must Watch\n2. ${t} ❤️ | New Viral Video\n3. ${t} ✨ | Trending Now\n4. ${t} 😍 | Full Video\n5. ${t} 🚀 | Don't Miss It\n\nCaption:\n${t} — watch till the end! ❤️🔥\nLike • Share • Follow • Subscribe\n\nHashtags:\n#${t.replace(/\\s+/g,"")} #Viral #Trending #Shorts #Reels`;
+}
+function makeSong(){
+ const t=$("songTopic").value||"Gujarati love song";
+ const v=$("voice").value, m=$("music").value||"Gujarati DJ remix";
+ $("songOut").innerText=`Create a ${t} song in ${v}. Music: ${m}. Natural Gujarati/Hindi pronunciation as appropriate, catchy hook, clear vocals, emotional but energetic delivery, memorable melody, strong dhol/percussion, clean modern mix, suitable for social media and YouTube. Avoid robotic vocals and keep the vocal style consistent.`;
+}
+$("year").innerText=new Date().getFullYear();
+</script>
+</body>
+</html>
